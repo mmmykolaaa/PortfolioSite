@@ -49,6 +49,7 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center; /* Центруємо текст */
 }
 
 .hero h1 {
@@ -68,4 +69,41 @@ footer {
     color: #000000;
     font-size: 0.9em;
     margin: 0 10px;
+}
+
+/* Медіа-запити для адаптивності */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 6vw; /* Збільшуємо розмір шрифту на мобільних пристроях */
+    }
+
+    nav a {
+        font-size: 0.9em; /* Зменшуємо шрифт у навігації для мобільних пристроїв */
+        margin-left: 10px; /* Менші відступи між посиланнями */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.2em; /* Зменшуємо розмір логотипу на менших екранах */
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    .hero h1 {
+        font-size: 8vw; /* Робимо заголовок ще більшим на маленьких екранах */
+    }
+
+    .footer-links a {
+        font-size: 0.8em; /* Зменшуємо шрифт у футері для маленьких екранів */
+        margin: 5px; /* Зменшуємо відступи між посиланнями у футері */
+        display: block; /* Відображаємо посилання у футері вертикально */
+    }
 }
