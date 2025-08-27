@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mykola's Site</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mykola's Site</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <div class="container home">
+<body class="home">
+  <div class="container">
     <header>
       <a href="index.html" class="logo">Mykola Kavetskyi</a>
       <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
+        <a href="#projects">Projects</a>
         <a href="resume_en.html">Resumé</a>
       </nav>
     </header>
 
-    <main class="intro">
-      <h1>Hi, I’m Mykola. I’m a Front‑End Developer.</h1>
+    <main>
+      <!-- Panel 1: White full-screen hero -->
+      <section class="intro fullpanel">
+        <h1>Hi, I’m Mykola. I’m a Front‑End Developer.</h1>
+      </section>
+
+      <!-- Panel 2: Black full-screen projects gallery -->
+      <section id="projects" class="projects-gallery fullpanel" aria-label="Projects gallery">
+        <div class="projects-container">
+          <div class="projects-header">
+            <h2>Projects</h2>
+            <p class="subtitle">A few things I’ve built and shipped.</p>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Card 1 -->
+            <a class="project-card" href="https://github.com/mmmykolaaa/exchange_project.git" target="_blank" rel="noopener">
+              <img src="img/exchange-project.png" alt="Currency Exchange App screenshot">
+              <div class="project-meta">
+                <span class="kicker">Mobile</span>
+                <h3>Currency Exchange App</h3>
+              </div>
+            </a>
+            
+            <!-- Card 2 -->
+            <a class="project-card" href="https://mmmykolaaa.github.io/PortfolioSite/" target="_blank" rel="noopener">
+              <img src="img/thumb-portfolio.jpg" alt="Portfolio website screenshot">
+              <div class="project-meta">
+                <span class="kicker">Web</span>
+                <h3>Portfolio Website</h3>
+              </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a class="project-card" href="#" aria-label="Task Manager App (coming soon)">
+              <img src="img/thumb-task.jpg" alt="Task manager app UI mockup">
+              <div class="project-meta">
+                <span class="kicker">Pet Project</span>
+                <h3>Task Manager App</h3>
+              </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a class="project-card" href="#" aria-label="UI Components (coming soon)">
+              <img src="img/thumb-ui.jpg" alt="UI components grid preview">
+              <div class="project-meta">
+                <span class="kicker">UI</span>
+                <h3>UI Components</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer-links">
-      <a href="https://github.com/mmmykolaaa">GitHub</a>
-      <a href="https://www.linkedin.com/in/mykola-kavetskyi">LinkedIn</a>
+    <footer>
+      <div class="footer-links">
+        <a href="https://github.com/mmmykolaaa">GitHub</a>
+        <a href="https://www.linkedin.com/in/mykola-kavetskyi">LinkedIn</a>
+      </div>
     </footer>
   </div>
 </body>
