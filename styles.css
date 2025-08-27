@@ -1,109 +1,84 @@
-/* Основні стилі */
+/* ===== Base ===== */
+:root {
+  --accent: #0f62fe;
+  --ink: #000000;
+  --muted-ink: #4b5563;
+  --surface: #f9f9f9;
+  --card: #ffffff;
+}
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #000000;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.5;
 }
 
+/* Layout container shared by all pages */
 .container {
-    width: 85%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3vh;
+  padding-top: 7vh;
+  padding-bottom: 7vh;
+}
+.container main { flex: 1; }
+
+/* Header / Nav / Logo */
+header { display: flex; justify-content: space-between; align-items: center; }
+.logo { text-decoration: none; color: var(--ink); font-weight: bold; font-size: 1.5em; }
+.logo:visited { color: var(--ink); }
+.logo:hover { color: var(--accent); }
+nav a { margin-left: 20px; text-decoration: none; color: var(--ink); font-size: 1em; }
+nav a:hover { color: var(--accent); }
+
+/* Footer */
+footer { text-align: center; }
+.footer-links a { text-decoration: none; color: var(--ink); font-size: .9em; margin: 0 10px; }
+.footer-links a:hover { color: var(--accent); }
+
+/* ===== Home (reference style) ===== */
+.home { text-align: center; }
+.home header { font-size: .9em; }
+.intro { display: flex; justify-content: center; align-items: center; height: 100%; }
+.intro h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; margin: 0; }
+
+/* ===== About ===== */
+.about { max-width: 900px; margin: 6vh auto; }
+.about h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 800; line-height: 1.2; margin: 0 0 16px 0; text-align: center; }
+.about p { font-size: clamp(14px, 2vw, 18px); color: var(--ink); margin: 0 0 14px 0; text-align: left; }
+
+/* ===== Resume ===== */
+.resume { max-width: 900px; margin: 6vh auto; background: var(--card); padding: 32px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,.06); }
+.resume h1 { font-size: clamp(28px, 4.5vw, 40px); font-weight: 800; line-height: 1.2; margin: 0 0 8px 0; }
+.resume .tagline { color: var(--muted-ink); margin: 0 0 16px 0; font-size: clamp(14px, 2.2vw, 18px); }
+.resume .language-toggle { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 12px; font-size: 14px; }
+.resume .language-toggle a { text-decoration: none; color: var(--ink); padding: 6px 10px; border: 1px solid #e5e7eb; border-radius: 999px; }
+.resume .language-toggle a:hover { background: #f3f4f6; }
+.resume .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; }
+.resume .section { margin-top: 18px; }
+.resume h2 { font-size: clamp(18px, 3vw, 22px); margin: 18px 0 8px; }
+.resume ul { margin: 0; padding-left: 18px; }
+.resume li { margin: 6px 0; }
+.resume hr { border: none; border-top: 1px solid #e5e7eb; margin: 20px 0; }
+
+/* Print-friendly for resume */
+@media print {
+  header, footer, .footer-links, nav { display: none !important; }
+  .container { width: 100%; max-width: none; padding: 0; }
+  .resume { box-shadow: none; padding: 0; margin: 0; border-radius: 0; }
 }
 
-/* Хедер */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 7vh;
-}
-
-.logo {
-    font-weight: bold;
-    font-size: 1.5em;
-    position: relative;
-    left: 0;
-}
-
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #000000;
-    font-size: 1em;
-}
-
-/* Основний контент */
-.hero {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Центруємо текст */
-}
-
-.hero h1 {
-    font-size: 3vw;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Бейсмент */
-footer {
-    text-align: center;
-    margin-bottom: 7vh;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 0.9em;
-    margin: 0 10px;
-}
-
-/* Медіа-запити для адаптивності */
+/* ===== Responsive tweaks ===== */
+@media (max-width: 900px) { .resume .grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 6vw; /* Збільшуємо розмір шрифту на мобільних пристроях */
-    }
-
-    nav a {
-        font-size: 0.9em; /* Зменшуємо шрифт у навігації для мобільних пристроїв */
-        margin-left: 10px; /* Менші відступи між посиланнями */
-    }
+  .container { padding-top: 4vh; padding-bottom: 4vh; }
 }
-
 @media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 1.2em; /* Зменшуємо розмір логотипу на менших екранах */
-    }
-
-    nav {
-        margin-top: 10px;
-    }
-
-    .hero h1 {
-        font-size: 8vw; /* Робимо заголовок ще більшим на маленьких екранах */
-    }
-
-    .footer-links a {
-        font-size: 0.8em; /* Зменшуємо шрифт у футері для маленьких екранів */
-        margin: 5px; /* Зменшуємо відступи між посиланнями у футері */
-        display: block; /* Відображаємо посилання у футері вертикально */
-    }
+  .container { padding-top: 3vh; padding-bottom: 3vh; }
 }
